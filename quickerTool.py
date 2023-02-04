@@ -41,11 +41,13 @@ def ayTag(link,linkLabel):
     return tag
 
 # img tag with src attribute
-def imgTag(source):
-    tag="<img src="+source+">"
+def imgTag(source,alt):
+    tag="<img src="+source+"alt="+alt+">"
     return tag
 
 
 
-newtag=imgTag("img_girl.jpg")
-print(newtag)
+newTag=imgTag("img_girl.jpg" ,"Girl with jacket")
+print(newTag)
+
+
