@@ -48,10 +48,22 @@ def imgTag(source,alt):
 # paragraph text
 def paraTag(content):
     tag="<p>"+content +"</p>"
+    return tag
+
+#br tag
+def brTag():
+    tag="<br>"
+    return tag
+#heading tag
+def headingTag(number,content):
+    tag="<h"+str(number)+">"+content+"</h"+str(number)+">"
+    return tag
 
 
 
-#newTag=imgTag("img_girl.jpg" ,"Girl with jacket")
-#print(newTag)
+
+
+newTag=headingTag(2,"I wanna go to town")
+print(newTag)
 
 
