@@ -63,7 +63,3 @@ def headingTag(number,content):
 
 
 
-newTag=headingTag(2,"I wanna go to town")
-print(newTag)
-
-
