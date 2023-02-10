@@ -43,11 +43,15 @@ def ayTag(link,linkLabel):
 # img tag with src attribute
 def imgTag(source,alt):
     tag="<img src="+source+"alt="+alt+">"
-    return tag
+    return tag 
+
+# paragraph text
+def paraTag(content):
+    tag="<p>"+content +"</p>"
 
 
 
-newTag=imgTag("img_girl.jpg" ,"Girl with jacket")
-print(newTag)
+#newTag=imgTag("img_girl.jpg" ,"Girl with jacket")
+#print(newTag)
 
 
