@@ -59,7 +59,6 @@ def headingTag(number,content):
     tag="<h"+str(number)+">"+content+"</h"+str(number)+">"
     return tag
 
-
-
+#more functions to be added
 
 
