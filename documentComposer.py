@@ -10,4 +10,9 @@ def verifyPath(path):
     isExist=os.path.exists(path)
     return isExist
 
+def makePageSource(name):
+    file=open(name+".txt")
+
+
+
 
