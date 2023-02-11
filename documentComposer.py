@@ -3,9 +3,8 @@ import os
 #function to set name of the path
 
 #default projects folder
-def defaultPath():
-    defpath="C:/qtoprojects"
-    return defpath
+defDir="/qtoprojects"
+
 
 #function to make default path
 def makeDefPath(defpath):
@@ -13,8 +12,9 @@ def makeDefPath(defpath):
     os.mkdir(path)
 
 #function to create a folder(excluding default path)
-def makeFolder(folderName):
-    path=folderName
+def makeFolder(folderName,defpath):
+
+    path=os.path.join(defpath,folderName)
     os.mkdir(path)
     return path
 
@@ -30,9 +30,16 @@ def makePageSource(name,defpath,path):
 
 
 #PROGRAM ENTRY POINT
-projectsFolder=defaultPath()
+projectsFolder=defDir
 doesItExist=verifyPath(projectsFolder)
 if doesItExist is True:
+    rootdir = projectsFolder
+    for file in os.listdir(rootdir):
+        d = os.path.join(rootdir, file)
+        if os.path.isdir(d):
+            print(d)
+    #if the projects folder does not exist, below is the function to create one
+    else:
+        setProjectDir=makeDefPath(defDir)
 
 
-newPage=makePageSource("indeca")
