@@ -1,5 +1,8 @@
+from constants import sendTagStream
+#while True:
+    #with open("welcome.html",'r+') as f:
+        #contents = f.readlines()
+        #print(contents)
 
-while True:
-    with open("index.txt",'r+') as f:
-        contents = f.readlines()
-
+recievedStream=sendTagStream()
+str.join(recievedStream)
