@@ -76,15 +76,4 @@ def CreateHtml(title):
     return PageName
 
 
-pagename=titleTag("Welcome Page")
 
-f=open("welcome.html","w")
-heading=headingTag(5,"Welcome Home")
-f.writelines(heading)
-
-paragraph=paraTag("This is a paragraph created without tags")
-f.writelines(paragraph)
-
-image=imgTag("img1.jpg","Nasal Passage")
-
-f.writelines(image)
