@@ -1,4 +1,5 @@
 from quickerTool import *
+htdoc=["<!-- Write your comments here -->"]
 while True:
     text=input('quickerTool Command > :')
     print("Next Command. Type commit to effect changes!")
@@ -20,19 +21,15 @@ while True:
                 pos=tonext.index()
                 docObject.insert(closingBodyTag(),pos)
 
-    #Token Inserter Functions
-    #1.Insert doctype
-    def insertDoctype(tagInfo):
-        htdoc.append(tagInfo)
+    #List for generated html
 
-    #Container for generated html
-    htdoc=[]
     #Set Language constants
 
     #compare language constants with entered text.
     if text=="doctype":
         doctype = doctypeTag()
-        insertDoctype(doctype)
+        print(doctype)
+        htdoc.append(doctype)
     elif text=="title":
         title = titleTag(input("Title of your page"))
         htdoc.append(title)
@@ -47,13 +44,20 @@ while True:
         para=paraTag(input("Type Paragraph "))
         htdoc.append(para)
     elif text=="commit":
-        print(htdoc.__len__())
+        conv=''.join(htdoc)
+        f=open("re.html",'a')
+        f.writelines(conv)
+
+#when you resume, try to make each individual function commit on it's own during execution,
+#maybe this will enable lines to be written seperately
+
+
+        print(htdoc)
 
 
 
-#f=open("re.html",'r+')
-#f.writelines(htdoc)
-#print(htdoc)
+
+
 
 
 
