@@ -1,29 +1,21 @@
 from quickerTool import *
 htdoc=["<!-- Write your comments here -->"]
+documentName="untitled"
+#Function to read file into list
+def readFile(fileToRead,oldlist):
+    with open(fileToRead) as f:
+        lines=f.read().splitlines()
+        oldlist.append(lines)
+#Function to load progress
+def progress(list):
+    for line in list:
+        print(line)
+
 while True:
     text=input('quickerTool Command > :')
-    print("Next Command. Type commit to effect changes!")
+    #print("Next Command. Type commit to effect changes!")
     #TRAVERSING FUNCTIONS
     #1. Function to Check if html head is present
-    def travHead(docObject):
-        openTag="<head>"
-        closeTag="</head>"
-        if openTag not in docObject:
-            #need to find the position of the string <!DOCTYPE HTML> and insert head tag just below
-            #tonext is the element above the position we want to insert.
-            tonext="<!DOCTYPE html>"
-            if tonext in docObject:
-                pos=tonext.index()
-                docObject.insert(openingHeadTag(),pos)
-        elif closeTag not in docObject:
-            tonext="</title>"
-            if tonext in docObject:
-                pos=tonext.index()
-                docObject.insert(closingBodyTag(),pos)
-
-    #List for generated html
-
-    #Set Language constants
 
     #compare language constants with entered text.
     if text=="doctype":
@@ -43,16 +35,28 @@ while True:
     elif text=="para":
         para=paraTag(input("Type Paragraph "))
         htdoc.append(para)
+    elif text=="docname":
+        documentName=input("Enter name of new file")
+        f=open("%s.html"%documentName,'wb')
+
+        #Trigger
     elif text=="commit":
         conv=''.join(htdoc)
-        f=open("re.html",'a')
+        f=open("%s.html"%documentName,'a')
         f.writelines(conv)
+    #work on existing file
+    elif text=="openexisting":
+        existingFilename=input("Name of Existing File")
+        documentName=existingFilename
+        readFile(documentName,htdoc)
+        progress(htdoc)
+    else:
+        print("Unrecognized command")
 
-#when you resume, try to make each individual function commit on it's own during execution,
-#maybe this will enable lines to be written seperately
 
 
-        print(htdoc)
+
+
 
 
 
